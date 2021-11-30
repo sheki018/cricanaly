@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Fitness Calculator - CricAnaly</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="static/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="44x44" href="static/img/favicon-44x44.png">
+  <link rel="icon" type="image/png" sizes="14x14" href="static/img/favicon-14x14.png">
+  <link rel="manifest" href="static/img/site.webmanifest">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,400,400i,700,700i|Poppins:400,400,500,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/css/style.css" rel="stylesheet">
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center ">
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <div id="logo">
+        <a href="/"><img src="static/img/logo.png" alt=""></a>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto " href="/">Home</a></li>
+          <li><a class="nav-link scrollto" href="/#about">About</a></li>
+          <li><a class="nav-link scrollto" href="/#services">Services</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h4>Fitness Calculator</h4>
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li>Fitness Calculator</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+
+    <section class="inner-page pt-4">
+      <div class="container">
+        <p>
+          A player's physical fitness plays a crucial role during the match. Choosing a wrong player may bring defeat to the team and also affect the player's physical strength. Because if a player keeps pushing the limits of his body constantly, it can expose him to fatigue, stress, fracture, ligament tear and also mental illness.
+        </p>
+        <p>
+          As they say, <b>"Prevention is better than cure"</b> making good decisions prior to a match benefits both the team collectively and the player individually. By providing player's current data, decision is made by the model if a player can play in the current match or not.
+        </p>
+        <p>
+          By doing so, the performance of a player can be optimized by reducing the risk of injury, detecting excessive fatigue and constantly adapting rest, recovery, training and competition loads, based on the players' individual physical and psychological wellness, fitness and health.   
+        </p>
+        <p>
+          Severity of an injury is measured in 5 levels.
+          <ol>
+            <li>Small scratch and cuts, finger nail torn, finger concussion</li>
+            <li>Muscle spasm,low back pain(less severity), stiff back, split webing</li>
+            <li>Abdominal side strain, ankle sprain, hamstring strain, thowers elbow</li>
+            <li>Hamstring tear, stress facture, contusion, getting hit in sensitive area, any knee related injury</li>
+            <li>Facture ( any where in the body),dislocation</li>
+          </ol>
+        </p>
+        <p>
+          <b>Check if your bowler is good to go!!!</b>
+        </p>
+        <div class="row">
+          <form action='/predict-bowler' method="POST" class="col s14">
+            <div class="row">
+              <div class="form-group col-md-6">
+                  <label for="input" id="input"><b>Name</b></label>
+                  <div id="tooltip">
+                    <i class="bi bi-info-circle"></i>
+                    <span id="tooltiptext">Please provide the name of current Indian players<br>
+                    Eg: Rohit Sharma<br>
+                    K L Rahul<br>
+                    Ashwin<br>
+                    Bumrah</span>
+                  </div>
+                  <br>
+                <input name='name'type="text" id="wide" class="validate" placeholder="Provide names of Indian team players">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="input" id="input"><b>Age</b></label>
+                <br>
+              <input name='age'type="number" id="wide" class="validate">
+              </div>
+              <br>
+              <div class="mt-3 form-group col-md-4">
+                <label for="input" id="input"><b>Month of Injury</b></label>
+                <br>
+                <select name="=month" id="wide">
+                  <option value="1">January</option>
+                  <option value="2">February</option>
+                  <option value="3">March</option>
+                  <option value="4">April</option>
+                  <option value="5">May</option>
+                  <option value="4">June</option>
+                  <option value="7">July</option>
+                  <option value="8">August</option>
+                  <option value="9">September</option>
+                  <option value="10">October</option>
+                  <option value="11">November</option>
+                  <option value="12">December</option>
+                </select>
+                <br>
+              </div>
+              <div class="mt-3 form-group col-md-4">
+                <label for="input" id="input"><b>Year of Injury</b></label>
+                <br>
+                <select id="years" name="year" style="width: 100%;"></select>
+                <br>
+              </div>
+              <div class="mt-3 form-group col-md-4">
+                <label for="input" id="input"><b>Severity of Injury</b></label>
+                <br>
+                <select name="severity" id="wide">
+                  <option value="1">Level 1</option>
+                  <option value="2">Level 2</option>
+                  <option value="3">Level 3</option>
+                  <option value="4">Level 4</option>
+                  <option value="5">Level 5</option>
+                </select>
+                <br>
+              </div>
+              <div class="mt-3 form-group col-md-4">
+                <label for="input" id="input"><b>Strike rate</b></label>
+                <br>
+              <input name='sr'type="text" id="wide" class="validate">
+              </div>
+              <div class="mt-3 form-group col-md-4">
+                <label for="input" id="input"><b>Average</b></label>
+                <br>
+              <input name='avg'type="text" id="wide" class="validate">
+              </div>
+              <div class="mt-3 form-group col-md-4">
+                <label for="input" id="input"><b>Economy</b></label>
+                <br>
+              <input name='eco'type="text" id="wide" class="validate">
+              </div>
+              <div class="mt-3 form-group col-md-6">
+                <label for="input" id="input"><b>BMI</b></label>
+                <br>
+              <input name='bmi' type="text" id="wide" class="validate">
+              </div>
+              <div class="mt-3 form-group col-md-6">
+                <label for="input" id="input"><b>Yoyo test</b></label>
+                <br>
+                <select name="yt" id="wide">
+                  <option value="5">Elite</option>
+                  <option value="4">Excellent</option>
+                  <option value="3">Good</option>
+                  <option value="2">Average</option>
+                  <option value="1">Below Average</option>
+                  <option value="0">Poor</option>
+                </select>
+                <br>
+              </div>
+              <div class="mt-3 form-group col-md-6">
+                <label for="input" id="input"><b>No. of past injuries</b></label>
+                <br>
+              <input name='past'type="number" id="wide" class="validate">
+              </div>
+              <div class="mt-3 form-group col-md-6">
+                <label for="input" id="input"><b>Total no. of matches</b></label>
+                <br>
+              <input name='tot'type="number" id="wide" class="validate">
+              </div>
+            </div>
+      
+            <div class="row center">
+                <button type="submit" class = " mt-3 predict_button" >Is the player fit to play?</button>
+            </div>
+          </form>
+            </div>
+            <br><h4 align="center"><b>{{pred}}</b></h4>
+        <br>
+
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>CricAnaly</strong>. All Rights Reserved
+      </div>
+      
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="static/vendor/purecounter/purecounter.js"></script>
+  <script src="static/vendor/aos/aos.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="static/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/js/main.js"></script>
+
+</body>
+
+</html>
